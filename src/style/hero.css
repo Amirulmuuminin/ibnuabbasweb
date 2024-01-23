@@ -1,0 +1,7 @@
+.hero {
+  background-image: url("../../public/gedung-sibia.jpg");
+  @apply grow flex pr-[70px] justify-end items-center;
+  .glass-box {
+    @apply glass h-fit p-10;
+  }
+}

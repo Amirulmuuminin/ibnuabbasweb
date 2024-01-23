@@ -1,0 +1,12 @@
+header {
+  @apply flex px-[70px] mt-4 justify-between items-center;
+  img {
+    @apply size-12;
+  }
+  .icon {
+    @apply md:hidden text-[30px];
+  }
+  ul {
+    @apply hidden md:flex uppercase justify-end gap-7 text-sm font-[500];
+  }
+}
