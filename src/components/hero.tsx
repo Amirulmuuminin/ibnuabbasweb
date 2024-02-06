@@ -1,8 +1,7 @@
 import { FC } from "react";
-import { Header } from "./header";
 import ibnuAbbasText from "@/../public/ibnuAbbas.svg";
 import Image from "next/image";
-import Link from "next/link";
+import { Button } from "./button";
 interface heroProps {}
 
 export const Hero: FC<heroProps> = ({}) => {
@@ -14,6 +13,10 @@ export const Hero: FC<heroProps> = ({}) => {
           height={120}
           alt="sekolah islam billingual ibnu abbas"
         />
+        <div className="buttons">
+          <Button text="Info Pendaftaran" color="bg-primary text-TWhite" />
+          <Button text="Tentang Kami" color="bg-TWhite text-TBlack" />
+        </div>
       </div>
     </section>
   );

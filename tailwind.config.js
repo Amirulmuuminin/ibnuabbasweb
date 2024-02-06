@@ -9,9 +9,6 @@ module.exports = {
   ],
   prefix: "",
   theme: {
-    colors: {
-      white: "FFFFFF",
-    },
     container: {
       center: true,
       padding: "2rem",
@@ -20,6 +17,13 @@ module.exports = {
       },
     },
     extend: {
+      colors: {
+        primary: "#06A77D",
+        secondary: "#F1A208",
+        accent: "#153B50",
+        TBlack: "#1D1E2C",
+        TWhite: "#F8F8FF",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

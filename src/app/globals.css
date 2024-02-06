@@ -9,5 +9,5 @@
 html,
 body,
 .main {
-  @apply flex flex-col h-full;
+  @apply flex flex-col h-full m-0 p-0;
 }

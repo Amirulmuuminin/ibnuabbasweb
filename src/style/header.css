@@ -1,7 +1,7 @@
 header {
-  @apply flex px-[70px] mt-4 justify-between items-center;
+  @apply flex md:px-[70px] px-7 mt-4 justify-between items-center;
   img {
-    @apply size-12;
+    @apply size-11;
   }
   .icon {
     @apply md:hidden text-[30px];
