@@ -1,10 +1,10 @@
 .hero {
   background: url("../../public/gedung-sibia.jpg");
-  @apply grow flex md:justify-end md:pr-[70px] justify-center items-center min-h-screen;
+  @apply grow flex md:justify-end md:pr-[70px] justify-center items-center min-h-screen md:p-0 px-4;
   .glass-box {
-    @apply glass h-fit p-10;
+    @apply glass h-fit md:p-10 p-4;
   }
   .buttons {
-    @apply mt-12 flex justify-center flex-col md:flex-row gap-4;
+    @apply md:mt-12 mt-6 flex justify-center flex-col md:flex-row gap-4;
   }
 }
