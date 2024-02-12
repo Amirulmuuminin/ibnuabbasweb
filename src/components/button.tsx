@@ -12,9 +12,7 @@ interface buttonProps {
 
 export const Button: FC<buttonProps> = ({ color, text }) => {
   return (
-    <button
-      className={`${color}  px-7 py-[11px] md:py-[9px] rounded-xl text-[15px]`}
-    >
+    <button className={`${color}  px-7 py-[11px] md:py-[9px]  text-[15px]`}>
       <p className="-mt-[2.2px] font-semibold">{text}</p>
     </button>
   );

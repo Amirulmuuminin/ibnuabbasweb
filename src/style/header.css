@@ -1,5 +1,5 @@
 header {
-  @apply flex md:px-[70px] px-7 mt-4 justify-between items-center;
+  @apply flex fixed top-0 left-0 right-0 md:px-[70px] px-7 py-3 justify-between items-center glass;
   img {
     @apply size-11;
   }
@@ -7,6 +7,6 @@ header {
     @apply md:hidden text-[30px];
   }
   ul {
-    @apply hidden md:flex uppercase justify-end gap-7 text-sm font-[500];
+    @apply hidden md:flex uppercase justify-end gap-7 text-sm font-medium;
   }
 }
