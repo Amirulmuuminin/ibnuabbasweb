@@ -9,6 +9,13 @@ module.exports = {
   ],
   prefix: "",
   theme: {
+    screen: {
+      'sm': '576px',
+
+      'md': '960px',
+
+      'lg': '1440px',
+    },
     container: {
       center: true,
       padding: "2rem",

@@ -1,12 +1,12 @@
 header {
-  @apply flex fixed top-0 left-0 right-0 md:px-[70px] px-7 py-3 justify-between items-center glass;
+  @apply flex fixed top-0 left-0 right-0 md:px-[70px] sm:px-[50px] px-5 py-3 justify-between items-center glass;
   img {
-    @apply size-11;
+    @apply sm:size-11 size-10;
   }
   .icon {
-    @apply md:hidden text-[30px];
+    @apply sm:hidden text-[25px];
   }
   ul {
-    @apply hidden md:flex uppercase justify-end gap-7 text-sm font-medium;
+    @apply hidden sm:flex uppercase justify-end gap-7 text-sm font-medium;
   }
 }

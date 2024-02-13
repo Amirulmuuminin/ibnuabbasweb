@@ -1,5 +1,5 @@
 .section-header {
-  @apply flex justify-between md:px-[70px] px-7 font-medium;
+  @apply flex justify-between mt-10 md:px-[70px] px-4 pb-4 border-b border-black font-medium;
   a {
     @apply text-primary;
   }

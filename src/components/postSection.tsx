@@ -1,16 +1,11 @@
-import { FC } from "react";
-import { SectionHeader } from "./sectionHeader";
+import { FC } from 'react';
 
-interface postSectionProps {}
-
-export const PostSection: FC<postSectionProps> = ({}) => {
-  return (
-    <>
-      <SectionHeader
-        text="Postingan Terbaru"
-        textLink="Lihat Semua"
-        link="percobaan"
-      />
-    </>
-  );
+type Props = {
+  
+}
+const PostSection: FC<Props> = ({}) => {
+  return <>
+  
+</>;
 };
+export default PostSection;
