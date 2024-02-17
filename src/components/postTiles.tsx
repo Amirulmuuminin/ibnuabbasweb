@@ -1,14 +1,13 @@
 import { FC } from 'react';
 
-interface ComponentsProps {
-  // Cursor should be here first
+type Props = {
+  
 }
-
-// Then cursor below this inside {}
-export const Components: FC<ComponentsProps> = ({}) => {
+const PostTiles: FC<Props> = ({}) => {
   return (
     <>
-      {/* Then cursor here */}
+      
     </>
   );
 };
+export default PostTiles;

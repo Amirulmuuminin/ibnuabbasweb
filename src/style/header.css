@@ -1,5 +1,6 @@
 header {
-  @apply flex fixed top-0 left-0 right-0 md:px-[70px] sm:px-[50px] px-5 py-3 justify-between items-center glass;
+  @apply flex fixed z-10 top-0 left-0 right-0 md:px-[70px] sm:px-[50px] px-5 py-3 justify-between items-center glass;
+  background: rgba(255, 255, 255, 0.7);
   img {
     @apply sm:size-11 size-10;
   }
@@ -7,6 +8,7 @@ header {
     @apply sm:hidden text-[25px];
   }
   ul {
-    @apply hidden sm:flex uppercase justify-end gap-7 text-sm font-medium;
+    @apply hidden sm:flex justify-end gap-7;
+    text-transform: capitalize;
   }
 }

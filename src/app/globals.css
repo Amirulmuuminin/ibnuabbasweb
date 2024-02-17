@@ -4,11 +4,12 @@
 
 @import "../style/header.css";
 @import "../style/hero.css";
-@import "../style/universal.css";
+@import "../style/utils.css";
 @import "../style/sectionHeader.css";
 
 html,
 body,
 .main {
   @apply flex flex-col h-full m-0 p-0;
+  font-size: calc(14px + 0.390625vw);
 }
