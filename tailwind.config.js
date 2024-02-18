@@ -24,6 +24,14 @@ module.exports = {
       },
     },
     extend: {
+      padding:{
+        "lg": "70px",
+        "sm": "16px"
+      },
+      margin:{
+        "lg": "70px",
+        "sm": "16px"
+      },
       colors: {
         primary: "#06A77D",
         secondary: "#F1A208",

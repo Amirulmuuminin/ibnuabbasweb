@@ -1,6 +1,7 @@
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import PostSection from "@/components/postSection";
+import YoutubeSection from "@/components/youtubeSection";
 import { FC } from "react";
 
 interface pageProps {
@@ -12,7 +13,8 @@ const page: FC<pageProps> = ({ params: {} }) => {
     <>
       <Header />
       <Hero />
-      <PostSection/>
+      <PostSection />
+      <YoutubeSection />
     </>
   );
 };
