@@ -1,0 +1,13 @@
+.profil {
+    background: url("../../public/gedung-sibia.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @apply grow flex md:pr-lg justify-center items-center min-h-screen min-w-full md:p-0 px-sm;
+    .glass-box {
+      @apply glass h-fit md:p-10 p-4;
+    }
+    .buttons {
+      @apply md:mt-12 mt-6 flex justify-center flex-col md:flex-row gap-4;
+    }
+  }

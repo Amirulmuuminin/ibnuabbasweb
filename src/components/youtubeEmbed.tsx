@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Card } from "./ui/card";
 
 const YoutubeEmbed = ({ embedId }: { embedId: String }) => (
-  <Card className="mx-sm md:mx-lg">
+  <Card className=" md:p-4 p-2 w-full">
     <div className="video-responsive">
       <iframe
         width="853"
