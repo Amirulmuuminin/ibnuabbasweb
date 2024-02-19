@@ -45,6 +45,7 @@ export function CarouselContainer() {
       <div className="flex gap-1 justify-center">
         {Array.from({ length: 5 }).map((_, index) => (
           <div
+            key={index}
             className={`size-[5px] rounded-full ${
               index + 1 == current ? "bg-primary" : "bg-gray-400"
             }`}
