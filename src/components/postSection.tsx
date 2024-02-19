@@ -2,6 +2,7 @@ import { FC } from "react";
 import { SectionHeader } from "./sectionHeader";
 import PostTiles from "./postsTile";
 import { CarouselContainer } from "./carouselContainer";
+import { Button } from "./button";
 
 type Props = {};
 const PostSection: FC<Props> = ({}) => {
@@ -14,9 +15,10 @@ const PostSection: FC<Props> = ({}) => {
       />
       <CarouselContainer />
       <PostTiles />
-      <p className="text-center font-semibold text-primary mt-10">
-        Selengkapnya
-      </p>
+
+      <div className="w-13 mx-auto mt-10">
+        <Button text="Semua Post" color="bg-primary text-TWhite" />
+      </div>
     </>
   );
 };

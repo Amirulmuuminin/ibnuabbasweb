@@ -1,3 +1,4 @@
+import Footer from "@/components/footer";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import PostSection from "@/components/postSection";
@@ -17,6 +18,7 @@ const page: FC<pageProps> = ({ params: {} }) => {
       <PostSection />
       <YoutubeSection />
       <ProfileSection />
+      <Footer />
     </>
   );
 };

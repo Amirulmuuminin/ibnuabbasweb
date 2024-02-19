@@ -1,9 +1,9 @@
 .profil {
-    background: url("../../public/gedung-sibia.jpg");
+    background: url("../../public/profil.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    @apply grow flex md:pr-lg justify-center items-center min-h-screen min-w-full md:p-0 px-sm;
+    @apply grow flex md:pr-lg justify-center items-center min-h-screen m-sm md:m-lg md:p-0 px-sm;
     .glass-box {
       @apply glass h-fit md:p-10 p-4;
     }
