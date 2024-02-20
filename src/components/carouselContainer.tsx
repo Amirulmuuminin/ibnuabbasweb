@@ -11,6 +11,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import PostCarouselItem from "./postCarouselItem";
+import Link from "next/link";
 
 export function CarouselContainer() {
   const [api, setApi] = React.useState<CarouselApi>();
@@ -36,7 +37,9 @@ export function CarouselContainer() {
         <CarouselContent>
           {Array.from({ length: 5 }).map((_, index) => (
             <CarouselItem key={index}>
-              <PostCarouselItem />
+              <Link href={"/post/id"}>
+                <PostCarouselItem />
+              </Link>
             </CarouselItem>
           ))}
         </CarouselContent>
