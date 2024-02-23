@@ -1,13 +1,14 @@
 header {
   @apply flex fixed z-10 top-0 left-0 right-0 md:px-lg px-sm py-3 justify-between items-center glass;
   background: rgba(255, 255, 255, 0.7);
+  text-transform: capitalize;
   img {
     @apply sm:size-11 size-10;
   }
   .icon {
     @apply sm:hidden text-[25px];
   }
-  ul {
+  .not-mobile {
     @apply hidden sm:flex justify-end gap-7;
     text-transform: capitalize;
   }
