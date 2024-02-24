@@ -16,7 +16,7 @@ const ProfileSection: FC<Props> = ({}) => {
             height={120}
             alt="sekolah islam billingual ibnu abbas"
           />
-          <div className="flex justify-center mt-7">
+          <div className="mt-7 flex justify-center">
             <Button text="Profile" color="bg-primary text-TWhite" />
           </div>
         </div>

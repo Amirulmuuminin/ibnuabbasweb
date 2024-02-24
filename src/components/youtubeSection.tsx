@@ -15,13 +15,13 @@ const YoutubeSection: FC<Props> = ({}) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Card className="w-fit px-4 py-1 mx-auto flex gap-3 items-center">
+        <Card className="mx-auto flex w-fit items-center gap-3 px-4 py-1">
           <Image alt="sibia bsd" src={yt} className="size-6" />
           <p className="-mt-[2px]">Channel</p>
         </Card>
       </a>
 
-      <div className="grid md:grid-cols-2 grid-cols-1 w-full gap-4 px-sm md:px-lg">
+      <div className="grid w-full grid-cols-1 gap-4 px-sm md:grid-cols-2 md:px-lg">
         <YoutubeEmbed embedId="Zc5IOU-4g6Q" />
         <YoutubeEmbed embedId="kJ2VX9DEShM" />
       </div>
