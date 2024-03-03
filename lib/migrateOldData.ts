@@ -42,6 +42,7 @@ export async function migrateOldDataProfile() {
       data: {
         title: singleProfile.title.__cdata,
         content: singleProfile.encoded[0].__cdata,
+        slug: singleProfile.title.__cdata.replaceAll(" ", "%20")
       },
     });
     console.log("data inserted");
@@ -49,3 +50,25 @@ export async function migrateOldDataProfile() {
     console.log(error);
   }
 }
+
+// export async function migrateOldDataPost() {
+//   const filePath = path.join(process.cwd(), "/data/ibnuabbasData.json");
+//   const jsonData = await fsPromises.readFile(filePath, { encoding: "utf8" });
+//   const objectData: OldData = JSON.parse(jsonData);
+//   const postArray = objectData.rss.channel.item.filter((item) => {
+//     return item.post_type.__cdata == "post";
+//   });
+
+//   try {
+//     await prisma.post.create({
+//       data: {
+//         title: singleProfile.title.__cdata,
+//         content: singleProfile.encoded[0].__cdata,
+//         slug: singleProfile.title.__cdata.replaceAll(" ", "%20")
+//       },
+//     });
+//     console.log("data inserted");
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
