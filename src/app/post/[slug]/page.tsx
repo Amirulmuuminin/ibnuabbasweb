@@ -6,6 +6,7 @@ import {
   migrateOldDataPost,
   migrateOldDataProfile,
 } from "@/utils/migrateOldData";
+import { Header } from "@/components/header";
 
 export async function generateStaticParams() {
   const allSlug = await getAllSlug();
@@ -22,6 +23,7 @@ const Post: NextPage<Props> = async ({ params: { slug } }) => {
   const post = await getPostBySlug(slug);
   return (
     <>
+      <Header />
       <SinglePost post={post} />
       <Footer />
     </>

@@ -16,7 +16,7 @@ type Props = {
 };
 const SinglePost: FC<Props> = ({ post }) => {
   return (
-    <article className="prose lg:prose-xl mx-auto max-w-2xl space-y-12 px-6 py-24 dark:bg-gray-800 dark:text-gray-50">
+    <article className="prose lg:prose-xl mx-auto mt-6 max-w-2xl space-y-12 px-6 py-24 dark:bg-gray-800 dark:text-gray-50">
       <div className="mx-auto w-full space-y-4 text-center">
         <p className="tracki text-xs font-semibold uppercase">#TailwindCSS</p>
         <h1 className="leadi text-4xl font-bold md:text-5xl">{post?.title}</h1>
