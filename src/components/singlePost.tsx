@@ -2,10 +2,10 @@ import { FC } from "react";
 import Image from "next/image";
 import icon from "../../public/logo SIBIA.jpg";
 
-type Props = {};
-const SinglePost: FC<Props> = ({}) => {
+type Props = { content: string };
+const SinglePost: FC<Props> = ({ content }) => {
   return (
-    <article className="mx-auto max-w-2xl space-y-12 px-6 py-24 dark:bg-gray-800 dark:text-gray-50">
+    <article className="prose lg:prose-xl mx-auto max-w-2xl space-y-12 px-6 py-24 dark:bg-gray-800 dark:text-gray-50">
       <div className="mx-auto w-full space-y-4 text-center">
         <p className="tracki text-xs font-semibold uppercase">#TailwindCSS</p>
         <h1 className="leadi text-4xl font-bold md:text-5xl">
@@ -25,9 +25,10 @@ const SinglePost: FC<Props> = ({}) => {
           <time dateTime="2021-02-12 15:34:18-0200">Feb 12th 2021</time>
         </p>
       </div>
-      <div className="dark:text-gray-100">
-        <p>Insert the actual text content here...</p>
-      </div>
+      <div
+        className="dark:text-gray-100"
+        dangerouslySetInnerHTML={{ __html: content }}
+      ></div>
       <div className="border-t pt-12 dark:border-gray-700">
         <div className="flex flex-col space-y-4 md:flex-row md:space-x-6 md:space-y-0">
           <Image

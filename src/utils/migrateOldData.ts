@@ -1,5 +1,5 @@
 import path from "path";
-import { OldData } from "../data/model";
+import { OldData } from "../../data/model";
 import fsPromises from "fs/promises";
 import prisma from "@/../db";
 
@@ -38,8 +38,14 @@ export async function migrateOldDataProfile() {
   })[0];
 
   try {
-    await prisma.post.create({
-      data: {
+    await prisma.post.upsert({
+      where: { slug: singleProfile.title.__cdata.replace(/ /g, "%20") },
+      update: {
+        title: singleProfile.title.__cdata,
+        slug: singleProfile.title.__cdata.replace(/ /g, "%20"),
+        content: singleProfile.encoded[0].__cdata,
+      },
+      create: {
         title: singleProfile.title.__cdata,
         slug: singleProfile.title.__cdata.replace(/ /g, "%20"),
         content: singleProfile.encoded[0].__cdata,
