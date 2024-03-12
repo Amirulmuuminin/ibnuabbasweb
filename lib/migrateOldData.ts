@@ -41,10 +41,64 @@ export async function migrateOldDataProfile() {
     await prisma.post.create({
       data: {
         title: singleProfile.title.__cdata,
+        slug: singleProfile.title.__cdata.replace(/ /g, "%20"),
         content: singleProfile.encoded[0].__cdata,
       },
     });
     console.log("data inserted");
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function migrateOldDataPost() {
+  // retrieve posts
+  const filePath = path.join(process.cwd(), "/data/ibnuabbasData.json");
+  const jsonData = await fsPromises.readFile(filePath, { encoding: "utf8" });
+  const objectData: OldData = JSON.parse(jsonData);
+  const postsData = objectData.rss.channel.item.filter((item) => {
+    return item.post_type.__cdata == "post";
+  });
+
+  const categoryId = async (
+    categoryName?: string,
+  ): Promise<string | undefined> => {
+    if (!categoryName) return undefined;
+    const allCategories = await prisma.category.findMany();
+    const filteredcategory = allCategories.filter(
+      (item) =>
+        item.name.toLocaleLowerCase() == categoryName.toLocaleLowerCase(),
+    );
+
+    if (!filteredcategory[0]?.id) {
+      console.log(filteredcategory[0]);
+      return undefined;
+    } else {
+      return filteredcategory[0].id;
+    }
+  };
+
+  try {
+    postsData.map(async (item) => {
+      await prisma.post.upsert({
+        where: {
+          slug: item.title.__cdata.replace(/ /g, "%20"),
+        },
+        update: {
+          title: item.title.__cdata,
+          content: item.encoded[0].__cdata,
+          slug: item.title.__cdata.replace(/ /g, "%20"),
+          categoryId: await categoryId(item.category?.__cdata),
+        },
+        create: {
+          title: item.title.__cdata,
+          content: item.encoded[0].__cdata,
+          slug: item.title.__cdata.replace(/ /g, "%20"),
+          categoryId: await categoryId(item.category?.__cdata),
+        },
+      });
+    });
+    console.log("post inserted");
   } catch (error) {
     console.log(error);
   }

@@ -3,6 +3,7 @@ import SinglePost from "@/components/singlePost";
 import type { NextPage } from "next";
 import {
   inspectObject,
+  migrateOldDataPost,
   migrateOldDataProfile,
 } from "../../../../lib/migrateOldData";
 
@@ -20,7 +21,8 @@ interface Props {
 
 const Post: NextPage<Props> = async ({ params }) => {
   // inspectObject();
-  migrateOldDataProfile();
+  // migrateOldDataProfile();
+  // migrateOldDataPost();
   return (
     <>
       <SinglePost />
