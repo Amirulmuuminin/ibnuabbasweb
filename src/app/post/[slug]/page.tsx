@@ -19,12 +19,10 @@ interface Props {
 }
 
 const Post: NextPage<Props> = async ({ params: { slug } }) => {
-  await migrateOldDataPost();
-  await migrateOldDataProfile();
   const post = await getPostBySlug(slug);
   return (
     <>
-      <SinglePost content={post?.content!} />
+      <SinglePost post={post} />
       <Footer />
     </>
   );

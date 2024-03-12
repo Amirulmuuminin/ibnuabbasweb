@@ -2,15 +2,24 @@ import { FC } from "react";
 import Image from "next/image";
 import icon from "../../public/logo SIBIA.jpg";
 
-type Props = { content: string };
-const SinglePost: FC<Props> = ({ content }) => {
+type Props = {
+  post: {
+    id: string;
+    title: string;
+    slug: string;
+    content: string;
+    categoryId: string | null;
+    userId: string | null;
+    createdAt: Date | null;
+    updatedAt: Date | null;
+  } | null;
+};
+const SinglePost: FC<Props> = ({ post }) => {
   return (
     <article className="prose lg:prose-xl mx-auto max-w-2xl space-y-12 px-6 py-24 dark:bg-gray-800 dark:text-gray-50">
       <div className="mx-auto w-full space-y-4 text-center">
         <p className="tracki text-xs font-semibold uppercase">#TailwindCSS</p>
-        <h1 className="leadi text-4xl font-bold md:text-5xl">
-          Interdum et malesuada fames ac ante ipsum primis in faucibus?
-        </h1>
+        <h1 className="leadi text-4xl font-bold md:text-5xl">{post?.title}</h1>
         <p className="text-sm dark:text-gray-400">
           by
           <a
@@ -19,7 +28,7 @@ const SinglePost: FC<Props> = ({ content }) => {
             target="_blank"
             className="underline dark:text-violet-400"
           >
-            <span itemProp="name">Leroy Jenkins</span>
+            <span itemProp="name"> Ibnu Abbas </span>
           </a>
           on
           <time dateTime="2021-02-12 15:34:18-0200">Feb 12th 2021</time>
@@ -27,7 +36,7 @@ const SinglePost: FC<Props> = ({ content }) => {
       </div>
       <div
         className="dark:text-gray-100"
-        dangerouslySetInnerHTML={{ __html: content }}
+        dangerouslySetInnerHTML={{ __html: post?.content! }}
       ></div>
       <div className="border-t pt-12 dark:border-gray-700">
         <div className="flex flex-col space-y-4 md:flex-row md:space-x-6 md:space-y-0">
@@ -37,7 +46,7 @@ const SinglePost: FC<Props> = ({ content }) => {
             className="h-24 w-24 flex-shrink-0 self-center rounded-full border dark:border-gray-700 dark:bg-gray-500 md:justify-self-start"
           />
           <div className="flex flex-col">
-            <h4 className="text-lg font-semibold">Leroy Jenkins</h4>
+            <h4 className="text-lg font-semibold"> Ibnu Abbas </h4>
             <p className="dark:text-gray-400">
               Sed non nibh iaculis, posuere diam vitae, consectetur neque.
               Integer velit ligula, semper sed nisl in, cursus commodo elit.
