@@ -6,14 +6,26 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
 import PostCarouselItem from "./postCarouselItem";
 import Link from "next/link";
+import { FC } from "react";
 
-export function CarouselContainer() {
+interface Props {
+  latestPosts: {
+    id: string;
+    title: string;
+    slug: string;
+    content: string;
+    categoryId: string | null;
+    userId: string | null;
+    createdAt: Date | null;
+    updatedAt: Date | null;
+  }[];
+}
+
+export const CarouselContainer: FC<Props> = ({ latestPosts }) => {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
@@ -32,20 +44,22 @@ export function CarouselContainer() {
   }, [api]);
 
   return (
-    <div className="px-sm md:px-lg mt-10">
+    <div className="mt-10 px-sm md:px-lg">
       <Carousel setApi={setApi} className="">
         <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem key={index}>
-              <Link href={"/post/id"}>
-                <PostCarouselItem />
-              </Link>
-            </CarouselItem>
-          ))}
+          {latestPosts.map((item, i) => {
+            return (
+              <CarouselItem key={i}>
+                <Link href={`/post/${item.slug}`}>
+                  <PostCarouselItem post={item} />
+                </Link>
+              </CarouselItem>
+            );
+          })}
         </CarouselContent>
       </Carousel>
 
-      <div className="flex gap-1 justify-center">
+      <div className="flex justify-center gap-1">
         {Array.from({ length: 5 }).map((_, index) => (
           <div
             key={index}
@@ -57,4 +71,4 @@ export function CarouselContainer() {
       </div>
     </div>
   );
-}
+};

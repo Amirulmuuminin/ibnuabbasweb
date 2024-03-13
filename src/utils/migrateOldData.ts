@@ -2,6 +2,7 @@ import path from "path";
 import { OldData } from "../../data/model";
 import fsPromises from "fs/promises";
 import prisma from "@/../db";
+import { removeBeforeP } from "./removeBeforePTag";
 
 export async function inspectObject() {
   const filePath = path.join(process.cwd(), "/data/ibnuabbasData.json");
@@ -43,12 +44,12 @@ export async function migrateOldDataProfile() {
       update: {
         title: singleProfile.title.__cdata,
         slug: singleProfile.title.__cdata.replace(/ /g, "%20"),
-        content: singleProfile.encoded[0].__cdata,
+        content: removeBeforeP(singleProfile.encoded[0].__cdata),
       },
       create: {
         title: singleProfile.title.__cdata,
         slug: singleProfile.title.__cdata.replace(/ /g, "%20"),
-        content: singleProfile.encoded[0].__cdata,
+        content: removeBeforeP(singleProfile.encoded[0].__cdata),
       },
     });
     console.log("data inserted");
@@ -90,20 +91,31 @@ export async function migrateOldDataPost() {
         where: {
           slug: item.title.__cdata.replace(/ /g, "%20"),
         },
-        update: {
+        create: {
           title: item.title.__cdata,
-          content: item.encoded[0].__cdata,
+          content: removeBeforeP(item.encoded[0].__cdata),
           slug: item.title.__cdata.replace(/ /g, "%20"),
           categoryId: await categoryId(item.category?.__cdata),
         },
-        create: {
+        update: {
           title: item.title.__cdata,
-          content: item.encoded[0].__cdata,
+          content: removeBeforeP(item.encoded[0].__cdata),
           slug: item.title.__cdata.replace(/ /g, "%20"),
           categoryId: await categoryId(item.category?.__cdata),
         },
       });
     });
+
+    // await prisma.post.delete({
+    //   where: {
+    //     slug: "Hello%20world!",
+    //   },
+    // });
+    // await prisma.post.delete({
+    //   where: {
+    //     slug: "",
+    //   },
+    // });
     console.log("post inserted");
   } catch (error) {
     console.log(error);

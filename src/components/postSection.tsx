@@ -3,9 +3,12 @@ import { SectionHeader } from "./sectionHeader";
 import PostTiles from "./postsTile";
 import { CarouselContainer } from "./carouselContainer";
 import { Button } from "./button";
+import { getLatestPosts } from "@/services/postService";
 
 type Props = {};
-const PostSection: FC<Props> = ({}) => {
+const PostSection: FC<Props> = async ({}) => {
+  const latestPosts = await getLatestPosts();
+  console.log(latestPosts[0]);
   return (
     <>
       <SectionHeader
@@ -13,7 +16,7 @@ const PostSection: FC<Props> = ({}) => {
         textLink="Selengkapnya"
         link="1"
       />
-      <CarouselContainer />
+      <CarouselContainer latestPosts={latestPosts} />
       <PostTiles />
 
       <div className="w-13 mx-auto mt-10">

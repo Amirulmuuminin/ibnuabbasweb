@@ -20,3 +20,12 @@ export async function deletePostBySlug(slug: string) {
   });
   console.log(slug, "deleted");
 }
+
+export async function getLatestPosts() {
+  return await prisma.post.findMany({
+    take: 5,
+    orderBy: {
+      updatedAt: "desc",
+    },
+  });
+}

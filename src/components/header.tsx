@@ -3,7 +3,6 @@ import { FC } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logoSibia from "@/../public/logo SIBIA.jpg";
-import { CgMenuRight } from "react-icons/cg";
 import HeaderSm from "./headerSm";
 
 interface headerProps {}
@@ -11,7 +10,10 @@ interface headerProps {}
 export const Header: FC<headerProps> = ({}) => {
   return (
     <header>
-      <Image src={logoSibia} alt="logoSibia" />
+      <Link href={"/"}>
+        <Image src={logoSibia} alt="logoSibia" />
+      </Link>
+
       <ul className="not-mobile">
         <li>
           <Link href={""}>profil</Link>
