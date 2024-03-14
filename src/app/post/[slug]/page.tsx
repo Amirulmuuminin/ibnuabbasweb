@@ -19,6 +19,8 @@ interface Props {
 
 const Post: NextPage<Props> = async ({ params: { slug } }) => {
   const post = await getPostBySlug(slug);
+  console.log(slug);
+
   return (
     <>
       <Header />

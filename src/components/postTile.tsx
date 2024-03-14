@@ -1,7 +1,15 @@
+import { Post } from "@prisma/client";
 import { FC } from "react";
+import logo from "@/../public/logo SIBIA.jpg";
+import Image from "next/image";
+import Link from "next/link";
+import prisma from "../../db";
 
-type Props = {};
-const Post: FC<Props> = ({}) => {
+type Props = {
+  postData: Post;
+};
+const Post: FC<Props> = async ({ postData }) => {
+  console.log(postData.slug);
   return (
     <article className="flex bg-white transition hover:shadow-xl">
       <div className="rotate-180 p-2 [writing-mode:_vertical-lr]">
@@ -16,37 +24,34 @@ const Post: FC<Props> = ({}) => {
       </div>
 
       <div className="hidden sm:block sm:basis-56">
-        <img
+        <Image
           alt=""
-          src="https://images.unsplash.com/photo-1609557927087-f9cf8e88de18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+          src={logo}
           className="aspect-square h-full w-full object-cover"
         />
       </div>
 
       <div className="flex flex-1 flex-col justify-between">
         <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-          <a href="#">
+          <Link href={`/post/${postData.slug}`}>
             <h3 className="font-bold uppercase text-gray-900">
-              Finding the right guitar for your style - 5 tips
+              {postData.title}
             </h3>
-          </a>
+          </Link>
 
-          <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
-            dolores, possimus pariatur animi temporibus nesciunt praesentium
-            dolore sed nulla ipsum eveniet corporis quidem, mollitia itaque
-            minus soluta, voluptates neque explicabo tempora nisi culpa eius
-            atque dignissimos. Molestias explicabo corporis voluptatem?
-          </p>
+          <div
+            className="mt-2 line-clamp-3 text-sm/relaxed text-gray-700"
+            dangerouslySetInnerHTML={{ __html: postData.content }}
+          />
         </div>
 
         <div className="sm:flex sm:items-end sm:justify-end">
-          <a
-            href="#"
+          <Link
+            href={`/post/${postData.slug}`}
             className="block bg-primary px-5 py-3 text-center text-xs font-bold uppercase text-TWhite transition hover:bg-green-300"
           >
             Read Blog
-          </a>
+          </Link>
         </div>
       </div>
     </article>

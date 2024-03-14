@@ -36,8 +36,10 @@ const SinglePost: FC<Props> = ({ post }) => {
       </div>
       <div
         className="dark:text-gray-100"
-        dangerouslySetInnerHTML={{ __html: post?.content! }}
-      ></div>
+        dangerouslySetInnerHTML={{
+          __html: post?.content ?? "Konten tidak ditemukan",
+        }}
+      />
       <div className="border-t pt-12 dark:border-gray-700">
         <div className="flex flex-col space-y-4 md:flex-row md:space-x-6 md:space-y-0">
           <Image

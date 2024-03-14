@@ -29,3 +29,13 @@ export async function getLatestPosts() {
     },
   });
 }
+
+export async function getNext5Post() {
+  return await prisma.post.findMany({
+    skip: 5,
+    take: 5,
+    orderBy: {
+      updatedAt: "desc",
+    },
+  });
+}
