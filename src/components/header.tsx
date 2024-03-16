@@ -1,9 +1,11 @@
+"use client";
 import { FC } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
 import logoSibia from "@/../public/logo SIBIA.jpg";
 import HeaderSm from "./headerSm";
+import ScrollIntoView from "react-scroll-into-view";
 
 interface headerProps {}
 
@@ -14,22 +16,28 @@ export const Header: FC<headerProps> = ({}) => {
         <Image src={logoSibia} alt="logoSibia" />
       </Link>
 
-      <ul className="not-mobile">
+      <ul className="not-mobile cursor-pointer">
         <li>
-          <Link href={""}>profil</Link>
+          <Link href={"/category/profil"}>profil</Link>
         </li>
         <li>
-          <Link href={""}>pendaftaran</Link>
+          <Link href={"/category/pendaftaran"}>pendaftaran</Link>
         </li>
         <li>
-          <Link href={""}>berita</Link>
+          <Link href={"/category/berita"}>berita</Link>
         </li>
         <li>
-          <Link href={""}>artikel</Link>
+          <Link href={"/category/artikel"}>artikel</Link>
         </li>
         <li>
-          <Link href={""}>kontak</Link>
+          <Link href={"/category/tarbiyah"}>tarbiyah</Link>
         </li>
+        <li>
+          <Link href={"/category/tazkiyatun-nafs"}>tazkiyatun nafs</Link>
+        </li>
+        <ScrollIntoView selector="footer">
+          <li>kontak</li>
+        </ScrollIntoView>
       </ul>
 
       <HeaderSm />

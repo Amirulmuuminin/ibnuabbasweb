@@ -3,6 +3,7 @@ import { OldData } from "../../data/model";
 import fsPromises from "fs/promises";
 import prisma from "@/../db";
 import { removeBeforeP } from "./removeBeforePTag";
+import { slugify } from "./removeCommasFunction";
 
 export async function inspectObject() {
   const filePath = path.join(process.cwd(), "/data/ibnuabbasData.json");
@@ -89,18 +90,18 @@ export async function migrateOldDataPost() {
     postsData.map(async (item) => {
       await prisma.post.upsert({
         where: {
-          slug: item.title.__cdata.replace(/ /g, "%20"),
+          slug: slugify(item.title.__cdata),
         },
         create: {
           title: item.title.__cdata,
           content: removeBeforeP(item.encoded[0].__cdata),
-          slug: item.title.__cdata.replace(/ /g, "%20"),
+          slug: slugify(item.title.__cdata),
           categoryId: await categoryId(item.category?.__cdata),
         },
         update: {
           title: item.title.__cdata,
           content: removeBeforeP(item.encoded[0].__cdata),
-          slug: item.title.__cdata.replace(/ /g, "%20"),
+          slug: slugify(item.title.__cdata),
           categoryId: await categoryId(item.category?.__cdata),
         },
       });

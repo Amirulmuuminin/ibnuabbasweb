@@ -39,3 +39,10 @@ export async function getNext5Post() {
     },
   });
 }
+
+export async function getPostByCategory(category: string) {
+  return await prisma.category.findUnique({
+    where: { name: category },
+    include: { post: true },
+  });
+}

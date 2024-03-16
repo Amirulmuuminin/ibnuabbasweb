@@ -6,6 +6,7 @@ import { FC, useState } from "react";
 import { CgMenuRight } from "react-icons/cg";
 import Image from "next/image";
 import icon from "../../public/logo SIBIA.jpg";
+import ScrollIntoView from "react-scroll-into-view";
 
 type Props = {};
 const HeaderSm: FC<Props> = ({}) => {
@@ -19,7 +20,7 @@ const HeaderSm: FC<Props> = ({}) => {
     if (isOpen) setIsOpen(false);
   });
   return (
-    <div ref={ref} className="block sm:hidden">
+    <div ref={ref} className="block lg:hidden">
       {/* for mobile screen */}
       <CgMenuRight className="icon" onClick={togleMenu} />
       <ul
@@ -33,23 +34,31 @@ const HeaderSm: FC<Props> = ({}) => {
             alt=""
             className="h-24 w-24 flex-shrink-0 self-center rounded-full border dark:border-gray-700 dark:bg-gray-500 md:justify-self-start"
           />
-          <p className="font-semibold uppercase">IbnuAbbas-BSD.com</p>
+          <Link href={"/"} className="font-semibold uppercase">
+            IbnuAbbas-BSD.com
+          </Link>
         </div>
         <li>
-          <Link href={""}>profil</Link>
+          <Link href={"/category/profil"}>profil</Link>
         </li>
         <li>
-          <Link href={""}>pendaftaran</Link>
+          <Link href={"/category/pendaftaran"}>pendaftaran</Link>
         </li>
         <li>
-          <Link href={""}>berita</Link>
+          <Link href={"/category/berita"}>berita</Link>
         </li>
         <li>
-          <Link href={""}>artikel</Link>
+          <Link href={"/category/artikel"}>artikel</Link>
         </li>
         <li>
-          <Link href={""}>kontak</Link>
+          <Link href={"/category/tarbiyah"}>tarbiyah</Link>
         </li>
+        <li>
+          <Link href={"/category/tazkiyatun-nafs"}>tazkiyatun nafs</Link>
+        </li>
+        <ScrollIntoView selector="footer">
+          <li>kontak</li>
+        </ScrollIntoView>
       </ul>
     </div>
   );

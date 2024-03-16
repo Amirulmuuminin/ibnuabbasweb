@@ -4,11 +4,13 @@ import PostTilesWrapper from "./postsTilesWrapper";
 import { CarouselContainer } from "./carouselContainer";
 import { Button } from "./button";
 import { getLatestPosts, getNext5Post } from "@/services/postService";
+import { updateSlug } from "@/utils/updateData";
 
 type Props = {};
 const PostSection: FC<Props> = async ({}) => {
   const latestPosts = await getLatestPosts();
   const next5Post = await getNext5Post();
+
   return (
     <>
       <SectionHeader

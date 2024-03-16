@@ -2,9 +2,7 @@ import Footer from "@/components/footer";
 import SinglePost from "@/components/singlePost";
 import type { NextPage } from "next";
 import { getAllSlug, getPostBySlug } from "@/services/postService";
-
 import { Header } from "@/components/header";
-import { migrateOldDataPost } from "@/utils/migrateOldData";
 
 export async function generateStaticParams() {
   const allSlug = await getAllSlug();
@@ -19,7 +17,6 @@ interface Props {
 
 const Post: NextPage<Props> = async ({ params: { slug } }) => {
   const post = await getPostBySlug(slug);
-  console.log(slug);
 
   return (
     <>

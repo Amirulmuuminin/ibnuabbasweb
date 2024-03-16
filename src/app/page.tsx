@@ -8,6 +8,7 @@ import {
   migrateOldDataPost,
   migrateOldDataProfile,
 } from "@/utils/migrateOldData";
+import { updateSlug } from "@/utils/updateData";
 import { FC } from "react";
 
 interface pageProps {
@@ -15,8 +16,11 @@ interface pageProps {
 }
 
 const page: FC<pageProps> = async ({ params: {} }) => {
-  // await migrateOldDataPost();
+  // remove this
   // await migrateOldDataProfile();
+  // await migrateOldDataPost();
+  // updateSlug();
+  // await removeCommaFromExistingSlug();
 
   return (
     <>
