@@ -6,6 +6,7 @@ import { Header } from "@/components/header";
 
 export async function generateStaticParams() {
   const allSlug = await getAllSlug();
+
   return allSlug.map((item) => {
     return { slug: item };
   });

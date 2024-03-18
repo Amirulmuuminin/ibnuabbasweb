@@ -39,7 +39,9 @@ const HeaderSm: FC<Props> = ({}) => {
           </Link>
         </div>
         <li>
-          <Link href={"/category/profil"}>profil</Link>
+          <Link href={"/post/Profil%20Yayasan%20Ibnu%20Abbas%20BSD"}>
+            profil
+          </Link>
         </li>
         <li>
           <Link href={"/category/pendaftaran"}>pendaftaran</Link>
