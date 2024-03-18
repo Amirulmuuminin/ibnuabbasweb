@@ -3,13 +3,11 @@ import { FC } from "react";
 import logo from "@/../public/logo SIBIA.jpg";
 import Image from "next/image";
 import Link from "next/link";
-import prisma from "../../db";
 
 type Props = {
   postData: Post;
 };
 const Post: FC<Props> = async ({ postData }) => {
-  console.log(postData.slug);
   return (
     <article className="flex bg-white transition hover:shadow-xl">
       <div className="rotate-180 p-2 [writing-mode:_vertical-lr]">
