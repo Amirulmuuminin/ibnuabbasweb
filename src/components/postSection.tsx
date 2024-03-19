@@ -2,9 +2,8 @@ import { FC } from "react";
 import { SectionHeader } from "./sectionHeader";
 import PostTilesWrapper from "./postsTilesWrapper";
 import { CarouselContainer } from "./carouselContainer";
-import { Button } from "./button";
 import { getLatestPosts, getNext5Post } from "@/services/postService";
-import { updateSlug } from "@/utils/updateData";
+import { Button } from "./ui/button";
 
 type Props = {};
 const PostSection: FC<Props> = async ({}) => {
@@ -20,10 +19,9 @@ const PostSection: FC<Props> = async ({}) => {
       />
       <CarouselContainer latestPosts={latestPosts} />
       <PostTilesWrapper nextPost={next5Post} />
-
-      <div className="w-13 mx-auto mt-10">
-        <Button text="Semua Post" color="bg-primary text-TWhite" />
-      </div>
+      <Button className="mx-auto mt-5 w-fit rounded-none bg-primary">
+        Semua Postingan
+      </Button>
     </>
   );
 };

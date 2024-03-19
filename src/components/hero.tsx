@@ -14,8 +14,16 @@ export const Hero: FC<heroProps> = ({}) => {
           alt="sekolah islam billingual ibnu abbas"
         />
         <div className="buttons">
-          <Button text="Info Pendaftaran" color="bg-primary text-TWhite" />
-          <Button text="Tentang Kami" color="bg-TWhite text-TBlack" />
+          <Button
+            text="Info Pendaftaran"
+            color="bg-primary text-TWhite"
+            link="/post/Profil%20Yayasan%20Ibnu%20Abbas%20BSD"
+          />
+          <Button
+            text="Tentang Kami"
+            color="bg-TWhite text-TBlack"
+            link="/post/Profil%20Yayasan%20Ibnu%20Abbas%20BSD"
+          />
         </div>
       </div>
     </section>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FC } from "react";
 
 interface buttonProps {
@@ -8,12 +9,16 @@ interface buttonProps {
     | "bg-TBlack text-TWhite"
     | "bg-TWhite text-TBlack";
   text: string;
+  link: string;
 }
 
-export const Button: FC<buttonProps> = ({ color, text }) => {
+export const Button: FC<buttonProps> = ({ color, text, link }) => {
   return (
-    <button className={`${color}  px-7 py-[11px] md:py-[9px]  text-[15px]`}>
+    <Link
+      href={link}
+      className={`${color}  px-7 py-[11px] text-[15px]  md:py-[9px]`}
+    >
       <p className="-mt-[2.2px] font-semibold">{text}</p>
-    </button>
+    </Link>
   );
 };

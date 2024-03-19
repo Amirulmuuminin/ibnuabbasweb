@@ -17,7 +17,11 @@ const ProfileSection: FC<Props> = ({}) => {
             alt="sekolah islam billingual ibnu abbas"
           />
           <div className="mt-7 flex justify-center">
-            <Button text="Profile" color="bg-primary text-TWhite" />
+            <Button
+              text="Profile"
+              color="bg-primary text-TWhite"
+              link="/post/Profil%20Yayasan%20Ibnu%20Abbas%20BSD"
+            />
           </div>
         </div>
       </div>
