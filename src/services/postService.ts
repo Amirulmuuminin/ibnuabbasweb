@@ -50,3 +50,7 @@ export async function getPostByCategory(category: string) {
     where: { categoryId },
   });
 }
+
+export async function getAllPost() {
+  return await prisma.post.findMany({});
+}

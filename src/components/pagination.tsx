@@ -15,7 +15,7 @@ const Pagination: FC<Props> = ({}) => {
     <PaginationUi className="mt-10">
       <PaginationContent>
         <PaginationItem className="text-primary">
-          <PaginationNext href="#" isActive />
+          <PaginationNext href="/category/semua" isActive />
         </PaginationItem>
       </PaginationContent>
     </PaginationUi>

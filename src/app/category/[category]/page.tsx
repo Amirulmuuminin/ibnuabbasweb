@@ -1,4 +1,4 @@
-import { getPostByCategory } from "@/services/postService";
+import { getAllPost, getPostByCategory } from "@/services/postService";
 import { FC } from "react";
 import prisma from "../../../../db";
 import { Header } from "@/components/header";
@@ -13,6 +13,7 @@ export async function generateStaticParams() {
     "artikel",
     "tarbiyah",
     "tazkiyatun-nafs",
+    "semua",
   ];
   return allCategory.map((item) => {
     return {
@@ -22,13 +23,9 @@ export async function generateStaticParams() {
 }
 
 function repairCategorySpelling(category: string) {
-  category =
-    category === "PSB"
-      ? category.toUpperCase()
-      : category === "tazkiyatun-nafs"
-        ? "Tazkiyatun Nafs"
-        : category[0].toUpperCase() + category.slice(1);
-  return category;
+  if (category === "psb") return category.toUpperCase();
+  if (category === "tazkiyatun-nafs") return "Tazkiyatun Nafs";
+  return category[0].toUpperCase() + category.slice(1);
 }
 
 type Props = {
@@ -36,8 +33,10 @@ type Props = {
 };
 const Page: FC<Props> = async ({ params: { category } }) => {
   category = repairCategorySpelling(category);
-  const postDatas = await getPostByCategory(category);
-  console.log(await getCategoryId({ categoryName: category }));
+  const postDatas =
+    category != "semua"
+      ? await getPostByCategory(category)
+      : await getAllPost();
   return (
     <div>
       <Header />

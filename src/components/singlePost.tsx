@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Image from "next/image";
 import icon from "../../public/logo SIBIA.jpg";
+import { getCategoryById, getCategoryId } from "@/services/categoryService";
 
 type Props = {
   post: {
@@ -14,11 +15,19 @@ type Props = {
     updatedAt: Date | null;
   } | null;
 };
-const SinglePost: FC<Props> = ({ post }) => {
+const SinglePost: FC<Props> = async ({ post }) => {
+  let category;
+  if (post?.categoryId) {
+    category = await getCategoryById(post.categoryId);
+  } else {
+    category = { name: "Uncategorized" };
+  }
   return (
     <article className="prose lg:prose-xl mx-auto mt-6 max-w-2xl space-y-12 px-6 py-24 dark:bg-gray-800 dark:text-gray-50">
       <div className="mx-auto w-full space-y-4 text-center">
-        <p className="tracki text-xs font-semibold uppercase">#TailwindCSS</p>
+        <p className="tracki text-xs font-semibold uppercase">
+          #{category?.name}
+        </p>
         <h1 className="leadi text-4xl font-bold md:text-5xl">{post?.title}</h1>
         <p className="text-sm dark:text-gray-400">
           by
