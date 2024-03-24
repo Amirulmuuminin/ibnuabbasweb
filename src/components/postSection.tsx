@@ -4,6 +4,7 @@ import PostTilesWrapper from "./postsTilesWrapper";
 import { CarouselContainer } from "./carouselContainer";
 import { getLatestPosts, getNext5Post } from "@/services/postService";
 import { Button } from "./ui/button";
+import Pagination from "./pagination";
 
 type Props = {};
 const PostSection: FC<Props> = async ({}) => {
@@ -18,10 +19,8 @@ const PostSection: FC<Props> = async ({}) => {
         link="1"
       />
       <CarouselContainer latestPosts={latestPosts} />
-      <PostTilesWrapper nextPost={next5Post} />
-      <Button className="mx-auto mt-5 w-fit rounded-none bg-primary">
-        Semua Postingan
-      </Button>
+      <PostTilesWrapper postDatas={next5Post} />
+      <Pagination />
     </>
   );
 };

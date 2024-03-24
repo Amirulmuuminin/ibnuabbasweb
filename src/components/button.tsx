@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FC } from "react";
+import { Button as Btn } from "./ui/button";
 
 interface buttonProps {
   color:
@@ -14,11 +15,8 @@ interface buttonProps {
 
 export const Button: FC<buttonProps> = ({ color, text, link }) => {
   return (
-    <Link
-      href={link}
-      className={`${color}  px-7 py-[11px] text-[15px]  md:py-[9px]`}
-    >
-      <p className="-mt-[2.2px] font-semibold">{text}</p>
-    </Link>
+    <Btn asChild className={`${color} rounded-none`}>
+      <Link href={link}>{text}</Link>
+    </Btn>
   );
 };

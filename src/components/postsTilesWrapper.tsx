@@ -3,15 +3,15 @@ import PostTile from "./postTile";
 import { Post } from "@prisma/client";
 
 type Props = {
-  nextPost: Post[];
+  postDatas: Post[];
 };
-const PostTiles: FC<Props> = ({ nextPost }) => {
+const PostTilesWrapper: FC<Props> = ({ postDatas }) => {
   return (
     <div className="mt-10 grid grid-cols-1 gap-6 px-sm md:px-lg">
-      {nextPost.map((item, i) => {
-        return <PostTile key={i} postData={item} />;
+      {postDatas.map((item, i) => {
+        return <PostTile key={item.slug} postData={item} />;
       })}
     </div>
   );
 };
-export default PostTiles;
+export default PostTilesWrapper;

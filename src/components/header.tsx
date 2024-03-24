@@ -23,7 +23,7 @@ export const Header: FC<headerProps> = ({}) => {
           </Link>
         </li>
         <li>
-          <Link href={"/category/pendaftaran"}>pendaftaran</Link>
+          <Link href={"/category/psb"}>pendaftaran</Link>
         </li>
         <li>
           <Link href={"/category/berita"}>berita</Link>
