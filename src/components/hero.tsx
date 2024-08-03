@@ -11,6 +11,7 @@ export const Hero: FC<heroProps> = ({}) => {
         <Image
           src={ibnuAbbasText}
           height={120}
+          priority
           alt="sekolah islam billingual ibnu abbas"
         />
         <div className="buttons">

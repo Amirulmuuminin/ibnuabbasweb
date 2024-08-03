@@ -3,11 +3,11 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  @apply grow flex md:justify-end md:pr-lg justify-center items-center min-h-screen min-w-full md:p-0 px-sm;
+  @apply flex min-h-screen min-w-full grow items-center justify-center px-sm md:justify-end md:p-0 md:pr-lg;
   .glass-box {
-    @apply glass h-fit md:p-10 p-4;
+    @apply glass h-fit p-4 md:p-10;
   }
   .buttons {
-    @apply md:mt-12 mt-6 flex justify-center flex-col md:flex-row gap-4;
+    @apply mt-6 flex flex-col justify-center gap-4 md:mt-12 md:flex-row;
   }
 }
