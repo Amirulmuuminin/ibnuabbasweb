@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Image from "next/image";
-import sibiaFooter from "../../public/sibia footer.svg";
+import sibiaFooter from "../../public/ibnuAbbas.svg";
 import ig from "../../public/ig.svg";
 import spotify from "../../public/spotify.svg";
 import wa from "../../public/wa.svg";
@@ -10,7 +10,7 @@ import yt from "../../public/yt.svg";
 type Props = {};
 const Footer: FC<Props> = ({}) => {
   return (
-    <footer className="bg-TBlack text-TWhite p-7">
+    <footer className="bg-neutral-700 p-7 text-TWhite">
       <div className="flex flex-col">
         <h3 className="font-extrabold">Temukan Kami</h3>
         <div className="mt-5 flex gap-3">
